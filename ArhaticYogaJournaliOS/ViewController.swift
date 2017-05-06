@@ -15,6 +15,28 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
     @IBOutlet var spinner: UIActivityIndicatorView!
     var floaty: Floaty = Floaty()
 
+    class var defaultColor: UIColor {
+        var cString: String = "7B41A9".trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+
+        var rgbValue: UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
     let allowedDomains: Array<String> = ["arhaticnet.herokuapp.com",
                                          "ayj-beta.herokuapp.com",
                                          "ayjournal.herokuapp.com",
@@ -47,8 +69,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
                                                        path: "studies/new"))
 
         floaty.plusColor = UIColor.white
-        // TODO Call this just once
-        floaty.buttonColor = hexStringToUIColor(hex: "7B41A9")
+        floaty.buttonColor = ViewController.defaultColor
 
         floaty.animationSpeed = 0.014
 
@@ -61,37 +82,15 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
         item.title = title
         item.icon = UIImage(named: icon)
 
-        item.buttonColor = hexStringToUIColor(hex: "7B41A9")
+        item.buttonColor = ViewController.defaultColor
         item.titleColor = UIColor.white
-        item.titleShadowColor = hexStringToUIColor(hex: "7B41A9")
+        item.titleShadowColor = ViewController.defaultColor
 
         item.handler = { item in
             self.webView.loadRequest(URLRequest(url: URL(string: "https://" + self.currenttUrl + "/" + path)!))
         }
 
         return item
-    }
-
-    func hexStringToUIColor (hex: String) -> UIColor {
-        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-
-        if ((cString.characters.count) != 6) {
-            return UIColor.gray
-        }
-
-        var rgbValue: UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
     }
 
     func buildSpinner() {
@@ -108,8 +107,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
     }
 
     func appendAppInfoToUserAgent() {
-        // TODO Obtain build version instead
-        let version: String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        let version: String = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
         let userAgent: String =
             UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent")! + " ArhaticYogaJournaliOS-" + version
         UserDefaults.standard.register(defaults: ["UserAgent": userAgent])
