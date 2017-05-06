@@ -37,7 +37,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     }
 
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == UIWebViewNavigationType.linkClicked && !allowedDomains.contains((request.url?.host!)!) {
+        if navigationType == UIWebViewNavigationType.linkClicked && (request.url?.scheme == "mailto" || !allowedDomains.contains((request.url?.host!)!)) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(request.url!, options: [:], completionHandler: nil)
             } else {
