@@ -20,6 +20,8 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
                                          "ayjournal.herokuapp.com",
                                          "arhaticyogajournal.com"]
 
+    let signedOutUrlPatterns: Array<String> = ["/welcome", "/password_reset", "/users/pwext"]
+
     var currenttUrl: String = "arhaticnet.herokuapp.com"
 
     override func viewDidLoad() {
@@ -45,12 +47,12 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
                                                        path: "studies/new"))
 
         floaty.plusColor = UIColor.white
+        // TODO Call this just once
         floaty.buttonColor = hexStringToUIColor(hex: "7B41A9")
 
         floaty.animationSpeed = 0.014
 
         floaty.fabDelegate = self
-        self.view.addSubview(floaty)
     }
 
     func buildFloatingActionButton(title: String, icon: String, path: String) -> FloatyItem {
@@ -133,16 +135,16 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
             return false
         }
 
-        if ((request.url?.scheme == "http" || request.url?.scheme == "https") && request.url?.host != currenttUrl) {
-            currenttUrl = (request.url?.host)!
-            floaty.removeItem(index: 3)
-            floaty.removeItem(index: 2)
-            floaty.removeItem(index: 1)
-            floaty.removeItem(index: 0)
-            buildFloatingActionMenu()
-        }
-
         return true
+    }
+
+    func isSignedOut(url: String) -> Bool {
+        for (_, element) in signedOutUrlPatterns.enumerated() {
+            if (url.contains(element)) {
+                return true
+            }
+        }
+        return false
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint,
@@ -157,6 +159,25 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
     }
 
     func webViewDidFinishLoad(_ webView: UIWebView) {
+        var request: URLRequest = webView.request!
+
+        if ((request.url?.scheme == "http" || request.url?.scheme == "https")) {
+            if (request.url?.host != currenttUrl) {
+                currenttUrl = (request.url?.host)!
+                floaty.removeItem(index: 3)
+                floaty.removeItem(index: 2)
+                floaty.removeItem(index: 1)
+                floaty.removeItem(index: 0)
+                buildFloatingActionMenu()
+            }
+
+            if (isSignedOut(url: (request.url?.absoluteString)!)) {
+                floaty.removeFromSuperview()
+            } else {
+                self.view.addSubview(floaty)
+            }
+        }
+
         spinner.stopAnimating()
     }
 
