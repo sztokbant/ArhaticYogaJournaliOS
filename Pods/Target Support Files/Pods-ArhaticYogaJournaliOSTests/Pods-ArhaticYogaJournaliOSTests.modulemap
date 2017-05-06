@@ -1,0 +1,6 @@
+framework module Pods_ArhaticYogaJournaliOSTests {
+  umbrella header "Pods-ArhaticYogaJournaliOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		564A673AEA733FEE968C2DF1 /* Pods_ArhaticYogaJournaliOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EAE5D89D5FC1399AD27BF4 /* Pods_ArhaticYogaJournaliOSUITests.framework */; };
+		9F65B7A99E349D68B68A15F9 /* Pods_ArhaticYogaJournaliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90079CB515850ED27B70AD0 /* Pods_ArhaticYogaJournaliOS.framework */; };
 		A09F0DF11EBD7AB600F18483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F0DF01EBD7AB600F18483 /* AppDelegate.swift */; };
 		A09F0DF31EBD7AB600F18483 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F0DF21EBD7AB600F18483 /* ViewController.swift */; };
 		A09F0DF61EBD7AB600F18483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A09F0DF41EBD7AB600F18483 /* Main.storyboard */; };
@@ -14,6 +16,7 @@
 		A09F0DFB1EBD7AB600F18483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A09F0DF91EBD7AB600F18483 /* LaunchScreen.storyboard */; };
 		A09F0E061EBD7AB600F18483 /* ArhaticYogaJournaliOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F0E051EBD7AB600F18483 /* ArhaticYogaJournaliOSTests.swift */; };
 		A09F0E111EBD7AB600F18483 /* ArhaticYogaJournaliOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F0E101EBD7AB600F18483 /* ArhaticYogaJournaliOSUITests.swift */; };
+		ACD5C71305E6096E3EE71B6E /* Pods_ArhaticYogaJournaliOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FE8A032831EA6B30C32720 /* Pods_ArhaticYogaJournaliOSTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04EAE5D89D5FC1399AD27BF4 /* Pods_ArhaticYogaJournaliOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArhaticYogaJournaliOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E849F442794AD298E12E592 /* Pods-ArhaticYogaJournaliOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArhaticYogaJournaliOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArhaticYogaJournaliOSUITests/Pods-ArhaticYogaJournaliOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		55CFBCEF533434EF92465352 /* Pods-ArhaticYogaJournaliOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArhaticYogaJournaliOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArhaticYogaJournaliOS/Pods-ArhaticYogaJournaliOS.debug.xcconfig"; sourceTree = "<group>"; };
+		59FE8A032831EA6B30C32720 /* Pods_ArhaticYogaJournaliOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArhaticYogaJournaliOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74328830A90B2AF5625EA1CF /* Pods-ArhaticYogaJournaliOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArhaticYogaJournaliOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArhaticYogaJournaliOS/Pods-ArhaticYogaJournaliOS.release.xcconfig"; sourceTree = "<group>"; };
+		94144849C273BD1F7372C980 /* Pods-ArhaticYogaJournaliOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArhaticYogaJournaliOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArhaticYogaJournaliOSTests/Pods-ArhaticYogaJournaliOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		95E89FA3F91E9142CFBFFC7F /* Pods-ArhaticYogaJournaliOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArhaticYogaJournaliOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArhaticYogaJournaliOSUITests/Pods-ArhaticYogaJournaliOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A09F0DED1EBD7AB600F18483 /* ArhaticYogaJournaliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArhaticYogaJournaliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09F0DF01EBD7AB600F18483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09F0DF21EBD7AB600F18483 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +57,8 @@
 		A09F0E0C1EBD7AB600F18483 /* ArhaticYogaJournaliOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArhaticYogaJournaliOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09F0E101EBD7AB600F18483 /* ArhaticYogaJournaliOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArhaticYogaJournaliOSUITests.swift; sourceTree = "<group>"; };
 		A09F0E121EBD7AB600F18483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E794F52B15530CE548613BFF /* Pods-ArhaticYogaJournaliOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArhaticYogaJournaliOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArhaticYogaJournaliOSTests/Pods-ArhaticYogaJournaliOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		F90079CB515850ED27B70AD0 /* Pods_ArhaticYogaJournaliOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArhaticYogaJournaliOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F65B7A99E349D68B68A15F9 /* Pods_ArhaticYogaJournaliOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD5C71305E6096E3EE71B6E /* Pods_ArhaticYogaJournaliOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564A673AEA733FEE968C2DF1 /* Pods_ArhaticYogaJournaliOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21216830454E2D90A54FFCC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55CFBCEF533434EF92465352 /* Pods-ArhaticYogaJournaliOS.debug.xcconfig */,
+				74328830A90B2AF5625EA1CF /* Pods-ArhaticYogaJournaliOS.release.xcconfig */,
+				94144849C273BD1F7372C980 /* Pods-ArhaticYogaJournaliOSTests.debug.xcconfig */,
+				E794F52B15530CE548613BFF /* Pods-ArhaticYogaJournaliOSTests.release.xcconfig */,
+				0E849F442794AD298E12E592 /* Pods-ArhaticYogaJournaliOSUITests.debug.xcconfig */,
+				95E89FA3F91E9142CFBFFC7F /* Pods-ArhaticYogaJournaliOSUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8887D301A3A3827D42534512 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F90079CB515850ED27B70AD0 /* Pods_ArhaticYogaJournaliOS.framework */,
+				59FE8A032831EA6B30C32720 /* Pods_ArhaticYogaJournaliOSTests.framework */,
+				04EAE5D89D5FC1399AD27BF4 /* Pods_ArhaticYogaJournaliOSUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A09F0DE41EBD7AB600F18483 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +119,8 @@
 				A09F0E041EBD7AB600F18483 /* ArhaticYogaJournaliOSTests */,
 				A09F0E0F1EBD7AB600F18483 /* ArhaticYogaJournaliOSUITests */,
 				A09F0DEE1EBD7AB600F18483 /* Products */,
+				21216830454E2D90A54FFCC2 /* Pods */,
+				8887D301A3A3827D42534512 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A09F0E151EBD7AB600F18483 /* Build configuration list for PBXNativeTarget "ArhaticYogaJournaliOS" */;
 			buildPhases = (
+				81EFC11CC491E16C91CCA6A4 /* [CP] Check Pods Manifest.lock */,
 				A09F0DE91EBD7AB600F18483 /* Sources */,
 				A09F0DEA1EBD7AB600F18483 /* Frameworks */,
 				A09F0DEB1EBD7AB600F18483 /* Resources */,
+				A967FBE0173EC73B8F4D7DDD /* [CP] Embed Pods Frameworks */,
+				E4D45483465AC4B09B0491FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A09F0E181EBD7AB600F18483 /* Build configuration list for PBXNativeTarget "ArhaticYogaJournaliOSTests" */;
 			buildPhases = (
+				360CCCFA43C415005F61BABE /* [CP] Check Pods Manifest.lock */,
 				A09F0DFD1EBD7AB600F18483 /* Sources */,
 				A09F0DFE1EBD7AB600F18483 /* Frameworks */,
 				A09F0DFF1EBD7AB600F18483 /* Resources */,
+				FA9734552743185F2B217921 /* [CP] Embed Pods Frameworks */,
+				2A001B44B17A975F0315E4FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A09F0E1B1EBD7AB600F18483 /* Build configuration list for PBXNativeTarget "ArhaticYogaJournaliOSUITests" */;
 			buildPhases = (
+				30222181206AC2F1C7BEFE70 /* [CP] Check Pods Manifest.lock */,
 				A09F0E081EBD7AB600F18483 /* Sources */,
 				A09F0E091EBD7AB600F18483 /* Frameworks */,
 				A09F0E0A1EBD7AB600F18483 /* Resources */,
+				3ED6D98C065DB664D52D6EFF /* [CP] Embed Pods Frameworks */,
+				0D263902F8826BAC4D73A82C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +305,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D263902F8826BAC4D73A82C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArhaticYogaJournaliOSUITests/Pods-ArhaticYogaJournaliOSUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A001B44B17A975F0315E4FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArhaticYogaJournaliOSTests/Pods-ArhaticYogaJournaliOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30222181206AC2F1C7BEFE70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		360CCCFA43C415005F61BABE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3ED6D98C065DB664D52D6EFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArhaticYogaJournaliOSUITests/Pods-ArhaticYogaJournaliOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81EFC11CC491E16C91CCA6A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A967FBE0173EC73B8F4D7DDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArhaticYogaJournaliOS/Pods-ArhaticYogaJournaliOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4D45483465AC4B09B0491FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArhaticYogaJournaliOS/Pods-ArhaticYogaJournaliOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA9734552743185F2B217921 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArhaticYogaJournaliOSTests/Pods-ArhaticYogaJournaliOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A09F0DE91EBD7AB600F18483 /* Sources */ = {
@@ -415,10 +602,12 @@
 		};
 		A09F0E161EBD7AB600F18483 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55CFBCEF533434EF92465352 /* Pods-ArhaticYogaJournaliOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CFBTHX3U4Y;
 				INFOPLIST_FILE = ArhaticYogaJournaliOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,10 +617,12 @@
 		};
 		A09F0E171EBD7AB600F18483 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74328830A90B2AF5625EA1CF /* Pods-ArhaticYogaJournaliOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CFBTHX3U4Y;
 				INFOPLIST_FILE = ArhaticYogaJournaliOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,6 +632,7 @@
 		};
 		A09F0E191EBD7AB600F18483 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94144849C273BD1F7372C980 /* Pods-ArhaticYogaJournaliOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -456,6 +648,7 @@
 		};
 		A09F0E1A1EBD7AB600F18483 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E794F52B15530CE548613BFF /* Pods-ArhaticYogaJournaliOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +664,7 @@
 		};
 		A09F0E1C1EBD7AB600F18483 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E849F442794AD298E12E592 /* Pods-ArhaticYogaJournaliOSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = CFBTHX3U4Y;
@@ -485,6 +679,7 @@
 		};
 		A09F0E1D1EBD7AB600F18483 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95E89FA3F91E9142CFBFFC7F /* Pods-ArhaticYogaJournaliOSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = CFBTHX3U4Y;
@@ -516,6 +711,7 @@
 				A09F0E171EBD7AB600F18483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A09F0E181EBD7AB600F18483 /* Build configuration list for PBXNativeTarget "ArhaticYogaJournaliOSTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +720,7 @@
 				A09F0E1A1EBD7AB600F18483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A09F0E1B1EBD7AB600F18483 /* Build configuration list for PBXNativeTarget "ArhaticYogaJournaliOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +729,7 @@
 				A09F0E1D1EBD7AB600F18483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

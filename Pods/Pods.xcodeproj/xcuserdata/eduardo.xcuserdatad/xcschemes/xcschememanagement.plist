@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Floaty.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ArhaticYogaJournaliOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ArhaticYogaJournaliOSTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ArhaticYogaJournaliOSUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3498CFDE046137C7FA46B2CF146EE671</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>524E2EAFF8B8B3C37002712DF5BD0B6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C123A74CD9D6CDA27160800BA68B01A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBA28BF7E86300E9CFBA1BFDDD3651F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
