@@ -34,13 +34,13 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     }
 
     func buildWebView() {
-        appendAppVersionToUserAgent()
+        appendAppInfoToUserAgent()
         webView.delegate = self
         webView.scrollView.delegate = self
         webView.loadRequest(URLRequest(url: URL(string: defaultUrl)!))
     }
 
-    func appendAppVersionToUserAgent() {
+    func appendAppInfoToUserAgent() {
         let version: String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
         let userAgent: String =
             UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent")! + " ArhaticYogaJournaliOS-" + version
