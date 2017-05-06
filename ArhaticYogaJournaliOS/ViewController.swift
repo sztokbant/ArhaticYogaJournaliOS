@@ -48,7 +48,11 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     }
 
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == UIWebViewNavigationType.linkClicked && (request.url?.scheme == "mailto" || !allowedDomains.contains((request.url?.host!)!)) {
+        if (request.url?.scheme == "tel") {
+            // prevents accidental clicks on numbers from being interpreted as "tel:"
+            return false
+        } else if (request.url?.scheme == "mailto"
+            || ((request.url?.scheme == "http" || request.url?.scheme == "https") && !allowedDomains.contains((request.url?.host!)!))) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(request.url!, options: [:], completionHandler: nil)
             } else {
