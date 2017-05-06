@@ -13,7 +13,8 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     @IBOutlet var webView: UIWebView!
     @IBOutlet var spinner: UIActivityIndicatorView!
 
-    let url = "https://arhaticnet.herokuapp.com"
+    let allowedDomains: Array<String> = ["arhaticnet.herokuapp.com", "ayj-beta.herokuapp.com", "ayjournal.herokuapp.com", "arhaticyogajournal.com"]
+    let defaultUrl: String = "https://arhaticnet.herokuapp.com"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +22,25 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
         webView.delegate = self
         webView.scrollView.delegate = self
         spinner.hidesWhenStopped = true
-        webView.loadRequest(URLRequest(url: URL(string: url)!))
+        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        webView.loadRequest(URLRequest(url: URL(string: defaultUrl)!))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.linkClicked && !allowedDomains.contains((request.url?.host!)!) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(request.url!, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(request.url!)
+            }
+            return false
+        }
+        return true
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
