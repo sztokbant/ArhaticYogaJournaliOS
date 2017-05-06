@@ -20,7 +20,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
                                          "ayjournal.herokuapp.com",
                                          "arhaticyogajournal.com"]
 
-    let defaultUrl: String = "https://arhaticnet.herokuapp.com"
+    var currenttUrl: String = "arhaticnet.herokuapp.com"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
         item.titleShadowColor = hexStringToUIColor(hex: "7B41A9")
 
         item.handler = { item in
-            self.webView.loadRequest(URLRequest(url: URL(string: self.defaultUrl + "/" + path)!))
+            self.webView.loadRequest(URLRequest(url: URL(string: "https://" + self.currenttUrl + "/" + path)!))
         }
 
         return item
@@ -102,10 +102,11 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
         appendAppInfoToUserAgent()
         webView.delegate = self
         webView.scrollView.delegate = self
-        webView.loadRequest(URLRequest(url: URL(string: defaultUrl)!))
+        webView.loadRequest(URLRequest(url: URL(string: "https://" + currenttUrl)!))
     }
 
     func appendAppInfoToUserAgent() {
+        // TODO Obtain build version instead
         let version: String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
         let userAgent: String =
             UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent")! + " ArhaticYogaJournaliOS-" + version
@@ -131,6 +132,16 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
             }
             return false
         }
+
+        if ((request.url?.scheme == "http" || request.url?.scheme == "https") && request.url?.host != currenttUrl) {
+            currenttUrl = (request.url?.host)!
+            floaty.removeItem(index: 3)
+            floaty.removeItem(index: 2)
+            floaty.removeItem(index: 1)
+            floaty.removeItem(index: 0)
+            buildFloatingActionMenu()
+        }
+
         return true
     }
 
