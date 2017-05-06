@@ -49,7 +49,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if (scrollView.contentOffset.y < 0) {
+        if (scrollView.contentOffset.y < -100) {
             webView.reload()
         }
     }
