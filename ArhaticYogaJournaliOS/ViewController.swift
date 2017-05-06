@@ -19,11 +19,16 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        initializeSpinner()
         webView.delegate = self
         webView.scrollView.delegate = self
+        webView.loadRequest(URLRequest(url: URL(string: defaultUrl)!))
+    }
+
+    func initializeSpinner() {
         spinner.hidesWhenStopped = true
         spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        webView.loadRequest(URLRequest(url: URL(string: defaultUrl)!))
+        spinner.color = UIColor.lightGray
     }
 
     override func didReceiveMemoryWarning() {
