@@ -11,13 +11,16 @@ import UIKit
 class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet var webView: UIWebView!
+    @IBOutlet var spinner: UIActivityIndicatorView!
 
     let url = "https://arhaticnet.herokuapp.com"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        webView.delegate = self
         webView.scrollView.delegate = self
+        spinner.hidesWhenStopped = true
         webView.loadRequest(URLRequest(url: URL(string: url)!))
     }
 
@@ -30,5 +33,17 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
         if (scrollView.contentOffset.y < 0) {
             webView.reload()
         }
+    }
+
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        spinner.startAnimating()
+    }
+
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        spinner.stopAnimating()
+    }
+
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        spinner.stopAnimating()
     }
 }
