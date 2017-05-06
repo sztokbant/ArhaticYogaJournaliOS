@@ -19,16 +19,27 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        initializeSpinner()
+        buildSpinner()
+        buildWebView()
+    }
+
+    func buildSpinner() {
+        spinner.hidesWhenStopped = true
+        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        spinner.color = UIColor.lightGray
+    }
+
+    func buildWebView() {
+        appendAppVersionToUserAgent()
         webView.delegate = self
         webView.scrollView.delegate = self
         webView.loadRequest(URLRequest(url: URL(string: defaultUrl)!))
     }
 
-    func initializeSpinner() {
-        spinner.hidesWhenStopped = true
-        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        spinner.color = UIColor.lightGray
+    func appendAppVersionToUserAgent() {
+        let shortVersion: String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        let userAgent: String = UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent")! + " ArhaticYogaJournaliOS-" + shortVersion
+        UserDefaults.standard.register(defaults: ["UserAgent": userAgent])
     }
 
     override func didReceiveMemoryWarning() {
