@@ -72,7 +72,11 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if (scrollView.contentOffset.y < -100) {
-            webView.reload()
+            if (webView.request?.url?.absoluteString == "") {
+                webView.loadRequest(URLRequest(url: URL(string: "https://" + appUrls.defaultDomain)!))
+            } else {
+                webView.reload()
+            }
         }
     }
 
@@ -88,5 +92,10 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
 
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         spinner.stopAnimating()
+
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle:UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }
