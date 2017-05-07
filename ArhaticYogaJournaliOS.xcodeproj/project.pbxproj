@@ -10,6 +10,7 @@
 		564A673AEA733FEE968C2DF1 /* Pods_ArhaticYogaJournaliOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EAE5D89D5FC1399AD27BF4 /* Pods_ArhaticYogaJournaliOSUITests.framework */; };
 		9F65B7A99E349D68B68A15F9 /* Pods_ArhaticYogaJournaliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90079CB515850ED27B70AD0 /* Pods_ArhaticYogaJournaliOS.framework */; };
 		A011995D1EBE9C47005ABDA5 /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011995C1EBE9C47005ABDA5 /* AppUrls.swift */; };
+		A01199631EBEAB0C005ABDA5 /* FloatingActionMenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01199621EBEAB0C005ABDA5 /* FloatingActionMenuHelper.swift */; };
 		A09F0DF11EBD7AB600F18483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F0DF01EBD7AB600F18483 /* AppDelegate.swift */; };
 		A09F0DF31EBD7AB600F18483 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F0DF21EBD7AB600F18483 /* ViewController.swift */; };
 		A09F0DF61EBD7AB600F18483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A09F0DF41EBD7AB600F18483 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		94144849C273BD1F7372C980 /* Pods-ArhaticYogaJournaliOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArhaticYogaJournaliOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArhaticYogaJournaliOSTests/Pods-ArhaticYogaJournaliOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95E89FA3F91E9142CFBFFC7F /* Pods-ArhaticYogaJournaliOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArhaticYogaJournaliOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArhaticYogaJournaliOSUITests/Pods-ArhaticYogaJournaliOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A011995C1EBE9C47005ABDA5 /* AppUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
+		A01199621EBEAB0C005ABDA5 /* FloatingActionMenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingActionMenuHelper.swift; sourceTree = "<group>"; };
 		A09F0DED1EBD7AB600F18483 /* ArhaticYogaJournaliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArhaticYogaJournaliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09F0DF01EBD7AB600F18483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09F0DF21EBD7AB600F18483 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				A09F0DF91EBD7AB600F18483 /* LaunchScreen.storyboard */,
 				A09F0DFC1EBD7AB600F18483 /* Info.plist */,
 				A011995C1EBE9C47005ABDA5 /* AppUrls.swift */,
+				A01199621EBEAB0C005ABDA5 /* FloatingActionMenuHelper.swift */,
 			);
 			path = ArhaticYogaJournaliOS;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01199631EBEAB0C005ABDA5 /* FloatingActionMenuHelper.swift in Sources */,
 				A09F0DF31EBD7AB600F18483 /* ViewController.swift in Sources */,
 				A09F0DF11EBD7AB600F18483 /* AppDelegate.swift in Sources */,
 				A011995D1EBE9C47005ABDA5 /* AppUrls.swift in Sources */,

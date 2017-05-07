@@ -16,28 +16,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
     var floaty: Floaty = Floaty()
 
     let appUrls: AppUrls = AppUrls()
-
-    class var buttonColor: UIColor {
-        var cString: String = "7B41A9".trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-
-        if ((cString.characters.count) != 6) {
-            return UIColor.gray
-        }
-
-        var rgbValue: UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
+    let buttonColor: UIColor = FloatingActionMenuHelper.hexStringToUIColor(hex: "7B41A9")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +41,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
                                                        path: "studies/new"))
 
         floaty.plusColor = UIColor.white
-        floaty.buttonColor = ViewController.buttonColor
+        floaty.buttonColor = buttonColor
 
         floaty.animationSpeed = 0.014
 
@@ -75,9 +54,9 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
         item.title = title
         item.icon = UIImage(named: icon)
 
-        item.buttonColor = ViewController.buttonColor
+        item.buttonColor = buttonColor
         item.titleColor = UIColor.white
-        item.titleShadowColor = ViewController.buttonColor
+        item.titleShadowColor = buttonColor
 
         item.handler = { item in
             self.webView.loadRequest(URLRequest(url: URL(string: "https://" + self.appUrls.currentDomain + "/" + path)!))
