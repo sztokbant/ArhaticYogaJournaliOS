@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Floaty
 
 class FloatingActionMenuHelper {
 
@@ -30,6 +31,55 @@ class FloatingActionMenuHelper {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+
+    class func refresh(floaty: Floaty, webView: UIWebView, appUrls: AppUrls, buttonColor: UIColor) {
+        floaty.addItem(item: FloatingActionMenuHelper.buildFloatingActionButton(webView: webView,
+                                                                                appUrls: appUrls,
+                                                                                buttonColor: buttonColor,
+                                                                                title: "Log Practice",
+                                                                                icon: "ic_launcher.png",
+                                                                                path: "practice_executions/multi"))
+        floaty.addItem(item: FloatingActionMenuHelper.buildFloatingActionButton(webView: webView,
+                                                                                appUrls: appUrls,
+                                                                                buttonColor: buttonColor,
+                                                                                title: "Log Tithing",
+                                                                                icon: "ic_dollar.png",
+                                                                                path: "tithings/new"))
+        floaty.addItem(item: FloatingActionMenuHelper.buildFloatingActionButton(webView: webView,
+                                                                                appUrls: appUrls,
+                                                                                buttonColor: buttonColor,
+                                                                                title: "Log Service",
+                                                                                icon: "ic_service.png",
+                                                                                path: "services/new"))
+        floaty.addItem(item: FloatingActionMenuHelper.buildFloatingActionButton(webView: webView,
+                                                                                appUrls: appUrls,
+                                                                                buttonColor: buttonColor,
+                                                                                title: "Log Study",
+                                                                                icon: "ic_study.png",
+                                                                                path: "studies/new"))
+
+        floaty.plusColor = UIColor.white
+        floaty.buttonColor = buttonColor
+
+        floaty.animationSpeed = 0.014
+    }
+
+    class func buildFloatingActionButton(webView: UIWebView, appUrls: AppUrls, buttonColor: UIColor, title: String, icon: String, path: String) -> FloatyItem {
+        let item = FloatyItem()
+
+        item.title = title
+        item.icon = UIImage(named: icon)
+
+        item.buttonColor = buttonColor
+        item.titleColor = UIColor.white
+        item.titleShadowColor = buttonColor
+
+        item.handler = { item in
+            webView.loadRequest(URLRequest(url: URL(string: "https://" + appUrls.currentDomain + "/" + path)!))
+        }
+
+        return item
     }
 
 }

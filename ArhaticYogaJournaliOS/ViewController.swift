@@ -21,48 +21,10 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        buildFloatingActionMenu()
+        FloatingActionMenuHelper.refresh(floaty: floaty, webView: webView, appUrls: appUrls, buttonColor: buttonColor)
+        floaty.fabDelegate = self
         buildSpinner()
         buildWebView()
-    }
-
-    func buildFloatingActionMenu() {
-        floaty.addItem(item: buildFloatingActionButton(title: "Log Practice",
-                                                       icon: "ic_launcher.png",
-                                                       path: "practice_executions/multi"))
-        floaty.addItem(item: buildFloatingActionButton(title: "Log Tithing",
-                                                       icon: "ic_dollar.png",
-                                                       path: "tithings/new"))
-        floaty.addItem(item: buildFloatingActionButton(title: "Log Service",
-                                                       icon: "ic_service.png",
-                                                       path: "services/new"))
-        floaty.addItem(item: buildFloatingActionButton(title: "Log Study",
-                                                       icon: "ic_study.png",
-                                                       path: "studies/new"))
-
-        floaty.plusColor = UIColor.white
-        floaty.buttonColor = buttonColor
-
-        floaty.animationSpeed = 0.014
-
-        floaty.fabDelegate = self
-    }
-
-    func buildFloatingActionButton(title: String, icon: String, path: String) -> FloatyItem {
-        let item = FloatyItem()
-
-        item.title = title
-        item.icon = UIImage(named: icon)
-
-        item.buttonColor = buttonColor
-        item.titleColor = UIColor.white
-        item.titleShadowColor = buttonColor
-
-        item.handler = { item in
-            self.webView.loadRequest(URLRequest(url: URL(string: "https://" + self.appUrls.currentDomain + "/" + path)!))
-        }
-
-        return item
     }
 
     func buildSpinner() {
@@ -129,7 +91,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
                 floaty.removeItem(index: 2)
                 floaty.removeItem(index: 1)
                 floaty.removeItem(index: 0)
-                buildFloatingActionMenu()
+                FloatingActionMenuHelper.refresh(floaty: floaty, webView: webView, appUrls: appUrls, buttonColor: buttonColor)
             }
 
             if (appUrls.isSignedOut(url: (request.url?.absoluteString)!)) {
