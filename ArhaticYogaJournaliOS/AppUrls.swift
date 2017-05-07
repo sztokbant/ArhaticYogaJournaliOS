@@ -14,7 +14,8 @@ class AppUrls {
 
     let signedOutUrlPatterns: Array<String> = ["/welcome", "/password_reset", "/users/pwext"]
 
-    var currentDomain: String = "arhaticnet.herokuapp.com"
+    let defaultDomain: String = "arhaticnet.herokuapp.com"
+    var currentDomain: String = ""
 
     func isAllowed(url: String) -> Bool {
         return allowedDomains.contains(url)

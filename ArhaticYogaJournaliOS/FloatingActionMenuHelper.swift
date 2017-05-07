@@ -33,7 +33,25 @@ class FloatingActionMenuHelper {
         )
     }
 
-    class func refresh(floaty: Floaty, webView: UIWebView, appUrls: AppUrls, buttonColor: UIColor) {
+    class func refresh(floaty: Floaty, webView: UIWebView, appUrls: AppUrls, buttonColor: UIColor, url: URL) {
+        if (appUrls.isSignedOut(url: url.absoluteString)) {
+            floaty.removeFromSuperview()
+            appUrls.currentDomain = ""
+            return
+        }
+
+        if (appUrls.currentDomain == url.host) {
+            return
+        }
+
+        floaty.items.removeAll()
+
+        if (appUrls.currentDomain == "") {
+            webView.superview?.addSubview(floaty)
+        }
+
+        appUrls.currentDomain = url.host!
+
         floaty.addItem(item: FloatingActionMenuHelper.buildFloatingActionButton(webView: webView,
                                                                                 appUrls: appUrls,
                                                                                 buttonColor: buttonColor,

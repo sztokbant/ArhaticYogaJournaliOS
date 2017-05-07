@@ -9,7 +9,7 @@
 import UIKit
 import Floaty
 
-class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate, FloatyDelegate {
+class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet var webView: UIWebView!
     @IBOutlet var spinner: UIActivityIndicatorView!
@@ -21,8 +21,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        FloatingActionMenuHelper.refresh(floaty: floaty, webView: webView, appUrls: appUrls, buttonColor: buttonColor)
-        floaty.fabDelegate = self
+        FloatingActionMenuHelper.refresh(floaty: floaty, webView: webView, appUrls: appUrls, buttonColor: buttonColor, url: URL(string: "https://" + appUrls.defaultDomain)!)
         buildSpinner()
         buildWebView()
     }
@@ -82,25 +81,8 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
     }
 
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        var request: URLRequest = webView.request!
-
-        if ((request.url?.scheme == "http" || request.url?.scheme == "https")) {
-            if (request.url?.host != appUrls.currentDomain) {
-                appUrls.currentDomain = (request.url?.host)!
-                floaty.removeItem(index: 3)
-                floaty.removeItem(index: 2)
-                floaty.removeItem(index: 1)
-                floaty.removeItem(index: 0)
-                FloatingActionMenuHelper.refresh(floaty: floaty, webView: webView, appUrls: appUrls, buttonColor: buttonColor)
-            }
-
-            if (appUrls.isSignedOut(url: (request.url?.absoluteString)!)) {
-                floaty.removeFromSuperview()
-            } else {
-                self.view.addSubview(floaty)
-            }
-        }
-
+        let request: URLRequest = webView.request!
+        FloatingActionMenuHelper.refresh(floaty: floaty, webView: webView, appUrls: appUrls, buttonColor: buttonColor, url: (request.url)!)
         spinner.stopAnimating()
     }
 
