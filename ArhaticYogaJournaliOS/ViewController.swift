@@ -13,15 +13,15 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
 
     @IBOutlet var webView: UIWebView!
     @IBOutlet var spinner: UIActivityIndicatorView!
-    var floaty: Floaty = Floaty()
 
     let appUrls: AppUrls = AppUrls()
-    let buttonColor: UIColor = FloatingActionMenuHelper.hexStringToUIColor(hex: "7B41A9")
+    var floatingActionMenuManager: FloatingActionMenuManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        FloatingActionMenuHelper.refresh(floaty: floaty, webView: webView, appUrls: appUrls, buttonColor: buttonColor, url: URL(string: "https://" + appUrls.defaultDomain)!)
+        floatingActionMenuManager = FloatingActionMenuManager(appUrls: appUrls)
+        floatingActionMenuManager.refresh(webView: webView, url: URL(string: "https://" + appUrls.defaultDomain)!)
         buildSpinner()
         buildWebView()
     }
@@ -82,7 +82,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
 
     func webViewDidFinishLoad(_ webView: UIWebView) {
         let request: URLRequest = webView.request!
-        FloatingActionMenuHelper.refresh(floaty: floaty, webView: webView, appUrls: appUrls, buttonColor: buttonColor, url: (request.url)!)
+        floatingActionMenuManager.refresh(webView: webView, url: (request.url)!)
         spinner.stopAnimating()
     }
 
