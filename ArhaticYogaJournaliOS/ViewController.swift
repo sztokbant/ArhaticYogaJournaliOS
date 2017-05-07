@@ -15,7 +15,9 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
     @IBOutlet var spinner: UIActivityIndicatorView!
     var floaty: Floaty = Floaty()
 
-    class var defaultColor: UIColor {
+    let appUrls: AppUrls = AppUrls()
+
+    class var buttonColor: UIColor {
         var cString: String = "7B41A9".trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
         if (cString.hasPrefix("#")) {
@@ -36,15 +38,6 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
             alpha: CGFloat(1.0)
         )
     }
-
-    let allowedDomains: Array<String> = ["arhaticnet.herokuapp.com",
-                                         "ayj-beta.herokuapp.com",
-                                         "ayjournal.herokuapp.com",
-                                         "arhaticyogajournal.com"]
-
-    let signedOutUrlPatterns: Array<String> = ["/welcome", "/password_reset", "/users/pwext"]
-
-    var currenttUrl: String = "arhaticnet.herokuapp.com"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +62,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
                                                        path: "studies/new"))
 
         floaty.plusColor = UIColor.white
-        floaty.buttonColor = ViewController.defaultColor
+        floaty.buttonColor = ViewController.buttonColor
 
         floaty.animationSpeed = 0.014
 
@@ -82,12 +75,12 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
         item.title = title
         item.icon = UIImage(named: icon)
 
-        item.buttonColor = ViewController.defaultColor
+        item.buttonColor = ViewController.buttonColor
         item.titleColor = UIColor.white
-        item.titleShadowColor = ViewController.defaultColor
+        item.titleShadowColor = ViewController.buttonColor
 
         item.handler = { item in
-            self.webView.loadRequest(URLRequest(url: URL(string: "https://" + self.currenttUrl + "/" + path)!))
+            self.webView.loadRequest(URLRequest(url: URL(string: "https://" + self.appUrls.currentDomain + "/" + path)!))
         }
 
         return item
@@ -103,7 +96,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
         appendAppInfoToUserAgent()
         webView.delegate = self
         webView.scrollView.delegate = self
-        webView.loadRequest(URLRequest(url: URL(string: "https://" + currenttUrl)!))
+        webView.loadRequest(URLRequest(url: URL(string: "https://" + appUrls.currentDomain)!))
     }
 
     func appendAppInfoToUserAgent() {
@@ -124,7 +117,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
             // prevents accidental clicks on numbers from being interpreted as "tel:"
             return false
         } else if (request.url?.scheme == "mailto" ||
-            ((request.url?.scheme == "http" || request.url?.scheme == "https") && !allowedDomains.contains((request.url?.host!)!))) {
+            ((request.url?.scheme == "http" || request.url?.scheme == "https") && !appUrls.isAllowed(url: (request.url?.host!)!))) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(request.url!, options: [:], completionHandler: nil)
             } else {
@@ -134,15 +127,6 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
         }
 
         return true
-    }
-
-    func isSignedOut(url: String) -> Bool {
-        for (_, element) in signedOutUrlPatterns.enumerated() {
-            if (url.contains(element)) {
-                return true
-            }
-        }
-        return false
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint,
@@ -160,8 +144,8 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
         var request: URLRequest = webView.request!
 
         if ((request.url?.scheme == "http" || request.url?.scheme == "https")) {
-            if (request.url?.host != currenttUrl) {
-                currenttUrl = (request.url?.host)!
+            if (request.url?.host != appUrls.currentDomain) {
+                appUrls.currentDomain = (request.url?.host)!
                 floaty.removeItem(index: 3)
                 floaty.removeItem(index: 2)
                 floaty.removeItem(index: 1)
@@ -169,7 +153,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate,
                 buildFloatingActionMenu()
             }
 
-            if (isSignedOut(url: (request.url?.absoluteString)!)) {
+            if (appUrls.isSignedOut(url: (request.url?.absoluteString)!)) {
                 floaty.removeFromSuperview()
             } else {
                 self.view.addSubview(floaty)
