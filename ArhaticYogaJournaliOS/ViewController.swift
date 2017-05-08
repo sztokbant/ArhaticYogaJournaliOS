@@ -40,7 +40,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     }
 
     func appendAppInfoToUserAgent() {
-        let version: String = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
+        let version: String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
         let userAgent: String =
             UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent")! + " ArhaticYogaJournaliOS-" + version
         UserDefaults.standard.register(defaults: ["UserAgent": userAgent])
