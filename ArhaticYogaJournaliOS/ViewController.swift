@@ -28,7 +28,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
 
     func buildSpinner() {
         spinner.hidesWhenStopped = true
-        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        spinner.style = UIActivityIndicatorView.Style.whiteLarge
         spinner.color = UIColor.lightGray
     }
 
@@ -52,14 +52,14 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     }
 
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest,
-                 navigationType: UIWebViewNavigationType) -> Bool {
+                 navigationType: UIWebView.NavigationType) -> Bool {
         if (request.url?.scheme == "tel") {
             // prevents accidental clicks on numbers from being interpreted as "tel:"
             return false
         } else if (request.url?.scheme == "mailto" ||
             ((request.url?.scheme == "http" || request.url?.scheme == "https") && !appUrls.isAllowed(url: (request.url?.host!)!))) {
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(request.url!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(request.url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             } else {
                 UIApplication.shared.openURL(request.url!)
             }
@@ -93,9 +93,14 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         spinner.stopAnimating()
 
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle:UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle:UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
