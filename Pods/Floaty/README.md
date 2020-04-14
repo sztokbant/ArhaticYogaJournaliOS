@@ -1,9 +1,9 @@
 # Floaty
-![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
-[![Version](https://img.shields.io/cocoapods/v/Floaty.svg?style=flat)](http://cocoapods.org/pods/floaty)
-[![License](https://img.shields.io/cocoapods/l/Floaty.svg?style=flat)](http://cocoapods.org/pods/floaty)
-[![Platform](https://img.shields.io/cocoapods/p/Floaty.svg?style=flat)](http://cocoapods.org/pods/floaty)
-[![Build Status](https://travis-ci.org/kciter/Floaty.svg?branch=master)](https://travis-ci.org/kciter/floaty)
+![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
+[![Version](https://img.shields.io/cocoapods/v/Floaty.svg?style=flat)](https://cocoapods.org/pods/floaty)
+[![License](https://img.shields.io/cocoapods/l/Floaty.svg?style=flat)](https://cocoapods.org/pods/floaty)
+[![Platform](https://img.shields.io/cocoapods/p/Floaty.svg?style=flat)](https://cocoapods.org/pods/floaty)
+[![Build Status](https://travis-ci.org/kciter/Floaty.svg?branch=master)](https://travis-ci.org/kciter/Floaty)
 
 Floaty is simple floating action button for iOS. (formerly KCFloatingActionButton)
 > Why change the name?
@@ -15,14 +15,14 @@ Floaty is simple floating action button for iOS. (formerly KCFloatingActionButto
 
 ## Requirements
 * iOS 9.0+
-* Swift 3.0
-* Xcode 8
+* Swift 4.2
+* Xcode 10
 
 ## Installation
 ### CocoaPods
 ```ruby
 use_frameworks!
-pod "Floaty", "~> 3.0.0"
+pod "Floaty", "~> 4.1.0"
 ```
 ### Carthage
 ```ruby
@@ -67,7 +67,7 @@ floaty.addItem("I got a handler", icon: UIImage(named: "icon")!, handler: { item
     let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "Me too", style: .Default, handler: nil))
     self.presentViewController(alert, animated: true, completion: nil)
-    fab.close()
+    floaty.close()
 })
 self.view.addSubview(floaty)
 ```
@@ -82,12 +82,31 @@ Floaty.global.button.addItem(item: item)
 ```
 <img src="https://github.com/kciter/Floaty/raw/master/Images/custom_item.png" width='187' alt="Use custom item">
 
+
+### RTL Support
+You can use the `rtlMode` property to mirror the Floaty Button for rtl languages.
+```swift
+Floaty.global.rtlMode = true
+```
+<img src="https://github.com/divgunsingh/Floaty/raw/master/Images/rtl_enabled.png" width='187' alt="Rtl Enabled">
+<img src="https://github.com/divgunsingh/Floaty/raw/master/Images/rtl_disabled.png" width='187' alt="Rtl Disabled">
+
+
+
 ### Sticky
 You can use the `sticky` property.
 ```swift
 floaty.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
 scrollView.addSubview(floaty)
 ```
+
+### Friendly Tap
+You can use the `friendlyTap` property.
+```swifty
+fab.friendlyTap = true
+scrollView.addSubview(fab)
+```
+With the default location of the frame, the button is now tappable until the right and rightbottom of the screen. This prevents tapping behind it by accident.
 
 ### Animation type
 <table>
@@ -107,6 +126,14 @@ scrollView.addSubview(floaty)
 <td><img src="https://github.com/kciter/Floaty/raw/master/Images/none_ani.gif" width='187' alt="None animation gif"></td>
 </tr>
 </table>
+
+## ToDo
+* [ ] Labels to come at the right hand side of the FAB Item menu.
+
+## Donate
+If you like this open source, you can sponsor it. :smile:
+
+[Paypal me](https://paypal.me/kciter)
 
 ## License
 The MIT License (MIT)

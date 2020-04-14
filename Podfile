@@ -6,7 +6,7 @@ target 'ArhaticYogaJournaliOS' do
   use_frameworks!
 
   # Pods for ArhaticYogaJournaliOS
-  pod "Floaty", "~> 3.0.0"
+  pod "Floaty", "~> 4.1.0"
 
   target 'ArhaticYogaJournaliOSTests' do
     inherit! :search_paths
