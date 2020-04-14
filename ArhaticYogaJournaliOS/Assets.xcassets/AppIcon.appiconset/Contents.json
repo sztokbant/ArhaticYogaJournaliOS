@@ -101,6 +101,12 @@
       "idiom" : "ipad",
       "filename" : "practice_execution-167-sq-white_bg.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "practice_execution-1024-sq-white_bg.png",
+      "scale" : "1x"
     }
   ],
   "info" : {
