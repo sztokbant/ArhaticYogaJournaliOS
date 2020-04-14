@@ -559,7 +559,7 @@
 				PROVISIONING_PROFILE = "8518bbfb-a0de-4a0e-aa72-043366664766";
 				PROVISIONING_PROFILE_SPECIFIER = "Arhatic Yoga Journal Development";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=*]" = "Arhatic Yoga Journal Development";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -580,7 +580,7 @@
 				PROVISIONING_PROFILE = "db429d87-0d40-4d3c-9653-ef33b3a2f9b1";
 				PROVISIONING_PROFILE_SPECIFIER = "Arhatic Yoga Journal Distribution";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=*]" = "Arhatic Yoga Journal Distribution";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
@@ -596,7 +596,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArhaticYogaJournaliOS.app/ArhaticYogaJournaliOS";
 			};
@@ -613,7 +613,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArhaticYogaJournaliOS.app/ArhaticYogaJournaliOS";
 			};
@@ -629,7 +629,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = ArhaticYogaJournaliOS;
 			};
@@ -645,7 +645,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = ArhaticYogaJournaliOS;
 			};
