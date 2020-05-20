@@ -9,6 +9,7 @@
 class AppUrls {
     let allowedDomains: Array<String> = ["arhaticnet.herokuapp.com",
                                          "ayj-beta.herokuapp.com",
+                                         "ayj-gamma.herokuapp.com",
                                          "ayjournal.herokuapp.com",
                                          "arhaticyogajournal.com"]
 
