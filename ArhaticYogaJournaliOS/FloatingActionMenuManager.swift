@@ -81,10 +81,9 @@ class FloatingActionMenuManager {
         item.titleShadowColor = buttonColor
 
         item.handler = { item in
-            webView.loadRequest(URLRequest(url: URL(string: "https://" + self.appUrls.getCurrentDomain() + "/" + path)!))
+            webView.loadRequest(URLRequest(url: URL(string: self.appUrls.getCurrentUrl() + "/" + path)!))
         }
 
         return item
     }
-
 }

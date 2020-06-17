@@ -28,6 +28,11 @@ class AppUrls {
         return currentDomain
     }
 
+    func setCurrentDomain(currentDomain: String) {
+        self.currentDomain = currentDomain
+        UserDefaults.standard.set(currentDomain, forKey: CURRENT_DOMAIN_KEY)
+    }
+
     func getCurrentUrl() -> String {
         return "https://" + currentDomain
     }
@@ -36,7 +41,7 @@ class AppUrls {
         return allowedDomains.contains(domain) || isAllowedGeneric(domain: domain)
     }
 
-    func isAllowedGeneric(domain: String) -> Bool {
+    private func isAllowedGeneric(domain: String) -> Bool {
         return domain.hasPrefix(GENERIC_DOMAIN_PREFIX) &&
             domain.hasSuffix(GENERIC_DOMAIN_SUFFIX) &&
             domain.count > GENERIC_DOMAIN_PREFIX.count + GENERIC_DOMAIN_SUFFIX.count
@@ -49,10 +54,5 @@ class AppUrls {
             }
         }
         return false
-    }
-
-    func setCurrentDomain(currentDomain: String) {
-        self.currentDomain = currentDomain
-        UserDefaults.standard.set(currentDomain, forKey: CURRENT_DOMAIN_KEY)
     }
 }
