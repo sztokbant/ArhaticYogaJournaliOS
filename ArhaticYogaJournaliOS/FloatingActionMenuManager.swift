@@ -43,23 +43,21 @@ class FloatingActionMenuManager {
     }
 
     func refresh(webView: UIWebView, url: URL) {
+        if (appUrls.getCurrentDomain() != url.host) {
+            updateCurrentDomain(webView: webView, url: url)
+        }
+
         if (appUrls.isSignedOut(url: url.absoluteString)) {
             floaty.removeFromSuperview()
-            appUrls.currentDomain = ""
-            return
-        }
-
-        if (appUrls.currentDomain == url.host) {
-            return
-        }
-
-        floaty.items.removeAll()
-
-        if (appUrls.currentDomain == "") {
+        } else {
             webView.superview?.addSubview(floaty)
         }
+    }
 
-        appUrls.currentDomain = url.host!
+    func updateCurrentDomain(webView: UIWebView, url: URL) {
+        floaty.items.removeAll()
+
+        appUrls.setCurrentDomain(currentDomain: url.host!)
 
         floaty.addItem(item: buildFloatingActionButton(webView: webView, title: "Log Practice", icon: "ic_launcher.png", path: "practice_executions/multi"))
         floaty.addItem(item: buildFloatingActionButton(webView: webView, title: "Log Tithing", icon: "ic_dollar.png", path: "tithings/new"))
@@ -83,7 +81,7 @@ class FloatingActionMenuManager {
         item.titleShadowColor = buttonColor
 
         item.handler = { item in
-            webView.loadRequest(URLRequest(url: URL(string: "https://" + self.appUrls.currentDomain + "/" + path)!))
+            webView.loadRequest(URLRequest(url: URL(string: "https://" + self.appUrls.getCurrentDomain() + "/" + path)!))
         }
 
         return item

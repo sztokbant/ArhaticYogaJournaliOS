@@ -5,21 +5,41 @@
 //  Created by Eduardo Sztokbant on 5/6/17.
 //  Copyright © 2017 Eduardo Sztokbant. All rights reserved.
 //
+import UIKit
 
 class AppUrls {
-    let allowedDomains: Array<String> = ["arhaticnet.herokuapp.com",
-                                         "ayj-beta.herokuapp.com",
-                                         "ayj-gamma.herokuapp.com",
-                                         "ayjournal.herokuapp.com",
-                                         "arhaticyogajournal.com"]
+    private let CURRENT_DOMAIN_KEY: String = "currentDomain"
 
-    let signedOutUrlPatterns: Array<String> = ["/welcome", "/password_reset", "/users/pwext"]
+    private let GENERIC_DOMAIN_PREFIX: String = "ayj"
+    private let GENERIC_DOMAIN_SUFFIX: String = ".herokuapp.com"
 
-    let defaultDomain: String = "arhaticnet.herokuapp.com"
-    var currentDomain: String = ""
+    private let allowedDomains: Array<String> = ["arhaticnet.herokuapp.com",
+                                                 "arhaticyogajournal.com"]
+    private var currentDomain: String = ""
 
-    func isAllowed(url: String) -> Bool {
-        return allowedDomains.contains(url)
+    private let signedOutUrlPatterns: Array<String> = ["/welcome", "/password_reset", "/users/pwext"]
+
+    init() {
+        let currentDomainOpt: String? = UserDefaults.standard.string(forKey: CURRENT_DOMAIN_KEY)
+        self.setCurrentDomain(currentDomain: currentDomainOpt ?? "arhaticnet.herokuapp.com")
+    }
+
+    func getCurrentDomain() -> String {
+        return currentDomain
+    }
+
+    func getCurrentUrl() -> String {
+        return "https://" + currentDomain
+    }
+
+    func isAllowed(domain: String) -> Bool {
+        return allowedDomains.contains(domain) || isAllowedGeneric(domain: domain)
+    }
+
+    func isAllowedGeneric(domain: String) -> Bool {
+        return domain.hasPrefix(GENERIC_DOMAIN_PREFIX) &&
+            domain.hasSuffix(GENERIC_DOMAIN_SUFFIX) &&
+            domain.count > GENERIC_DOMAIN_PREFIX.count + GENERIC_DOMAIN_SUFFIX.count
     }
 
     func isSignedOut(url: String) -> Bool {
@@ -29,5 +49,10 @@ class AppUrls {
             }
         }
         return false
+    }
+
+    func setCurrentDomain(currentDomain: String) {
+        self.currentDomain = currentDomain
+        UserDefaults.standard.set(currentDomain, forKey: CURRENT_DOMAIN_KEY)
     }
 }

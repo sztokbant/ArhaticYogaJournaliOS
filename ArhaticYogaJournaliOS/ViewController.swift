@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         floatingActionMenuManager = FloatingActionMenuManager(appUrls: appUrls)
-        floatingActionMenuManager.refresh(webView: webView, url: URL(string: "https://" + appUrls.defaultDomain)!)
+        floatingActionMenuManager.updateCurrentDomain(webView: webView, url: URL(string: appUrls.getCurrentUrl())!)
         buildSpinner()
         buildWebView()
     }
@@ -36,7 +36,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
         appendAppInfoToUserAgent()
         webView.delegate = self
         webView.scrollView.delegate = self
-        webView.loadRequest(URLRequest(url: URL(string: "https://" + appUrls.currentDomain)!))
+        webView.loadRequest(URLRequest(url: URL(string: appUrls.getCurrentUrl())!))
     }
 
     func appendAppInfoToUserAgent() {
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
             // prevents accidental clicks on numbers from being interpreted as "tel:"
             return false
         } else if (request.url?.scheme == "mailto" ||
-            ((request.url?.scheme == "http" || request.url?.scheme == "https") && !appUrls.isAllowed(url: (request.url?.host!)!))) {
+            ((request.url?.scheme == "http" || request.url?.scheme == "https") && !appUrls.isAllowed(domain: (request.url?.host!)!))) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(request.url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             } else {
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if (scrollView.contentOffset.y < -100) {
             if (webView.request?.url?.absoluteString == "") {
-                webView.loadRequest(URLRequest(url: URL(string: "https://" + appUrls.defaultDomain)!))
+                webView.loadRequest(URLRequest(url: URL(string: appUrls.getCurrentUrl())!))
             } else {
                 webView.reload()
             }
@@ -102,5 +102,5 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+    return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
