@@ -17,7 +17,7 @@ class AppUrls {
                                                  "arhaticyogajournal.com"]
     private var currentDomain: String = ""
 
-    private let signedOutUrlPatterns: Array<String> = ["/welcome", "/password_reset", "/users/pwext"]
+    private let signedOutUrlPatterns: Array<String> = ["/about?s=0", "/password_reset", "/users/pwext", "/welcome"]
 
     init() {
         let currentDomainOpt: String? = UserDefaults.standard.string(forKey: CURRENT_DOMAIN_KEY)
