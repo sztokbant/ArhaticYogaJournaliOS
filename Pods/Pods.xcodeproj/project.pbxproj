@@ -59,7 +59,7 @@
 		1D977152697EFE9223869E059378CA22 /* FloatyWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyWindow.swift; path = Sources/FloatyWindow.swift; sourceTree = "<group>"; };
 		1FF644B8D26C4B8077BFC839290D2E41 /* Floaty-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Floaty-Info.plist"; sourceTree = "<group>"; };
 		2574E2BAE9D4B1A3EBF28593B7093CE1 /* Pods-ArhaticYogaJournaliOSUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ArhaticYogaJournaliOSUITests-umbrella.h"; sourceTree = "<group>"; };
-		2915C263A5C5C8012A8C1E97512DC6A8 /* Floaty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Floaty.framework; path = Floaty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2915C263A5C5C8012A8C1E97512DC6A8 /* Floaty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Floaty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F556A65EA36908D2406B9650CE19B34 /* Pods-ArhaticYogaJournaliOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArhaticYogaJournaliOS.release.xcconfig"; sourceTree = "<group>"; };
 		30AC93014841130C47B4CEF54AA18743 /* Pods-ArhaticYogaJournaliOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArhaticYogaJournaliOS-frameworks.sh"; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -80,24 +80,24 @@
 		80D1BD2BB1A792BA849694C67CEA936C /* Pods-ArhaticYogaJournaliOSUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArhaticYogaJournaliOSUITests-Info.plist"; sourceTree = "<group>"; };
 		90A928B51C15B8B622888D43380F4290 /* Floaty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Floaty.debug.xcconfig; sourceTree = "<group>"; };
 		9D0DAA26B969A8BD219F9C18403267E0 /* FloatyItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyItem.swift; path = Sources/FloatyItem.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F1DDE8C84738F6B94E03646374B4123 /* Pods-ArhaticYogaJournaliOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArhaticYogaJournaliOS-Info.plist"; sourceTree = "<group>"; };
 		AFA96AAD4C9B0C7E06D40C72C96D464D /* Pods-ArhaticYogaJournaliOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArhaticYogaJournaliOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		B05DFF27C27254877B8A67BB0BA6A909 /* Floaty-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Floaty-prefix.pch"; sourceTree = "<group>"; };
 		B5177839E9CB54ED84DB3EC84AC5D3FA /* Floaty.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Floaty.modulemap; sourceTree = "<group>"; };
-		B645DF475B8D33C915B048F0B481CEC2 /* Pods_ArhaticYogaJournaliOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ArhaticYogaJournaliOS.framework; path = "Pods-ArhaticYogaJournaliOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B645DF475B8D33C915B048F0B481CEC2 /* Pods_ArhaticYogaJournaliOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArhaticYogaJournaliOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE9F1F0E63BC11AB3DC371CCF4479868 /* Pods-ArhaticYogaJournaliOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArhaticYogaJournaliOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CA73D2EE8CCD0E5B69FFCBD2B341C573 /* Pods-ArhaticYogaJournaliOSUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArhaticYogaJournaliOSUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D269CECEE8811DFBDC3E30A581254EB3 /* FloatyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyViewController.swift; path = Sources/FloatyViewController.swift; sourceTree = "<group>"; };
 		DD538320E85A2BA9F02E9E1E346CDE11 /* Floaty-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Floaty-umbrella.h"; sourceTree = "<group>"; };
-		DFF23E635A49AE8514C3E3E5B54A65B9 /* Pods_ArhaticYogaJournaliOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ArhaticYogaJournaliOSUITests.framework; path = "Pods-ArhaticYogaJournaliOSUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF23E635A49AE8514C3E3E5B54A65B9 /* Pods_ArhaticYogaJournaliOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArhaticYogaJournaliOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2836F273BF2F2CC989AECA989008977 /* Pods-ArhaticYogaJournaliOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArhaticYogaJournaliOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E85CC0499142D570E03EB6CCC91C9CEA /* Pods-ArhaticYogaJournaliOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ArhaticYogaJournaliOS.modulemap"; sourceTree = "<group>"; };
 		E92B10F3E1597E9F674783E71AFD196F /* Pods-ArhaticYogaJournaliOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArhaticYogaJournaliOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EA37E332DFD5855D185295F72B9D9975 /* Floaty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Floaty.swift; path = Sources/Floaty.swift; sourceTree = "<group>"; };
 		EEB31C646055F7E0691D1B8B182AC1D2 /* Floaty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Floaty.release.xcconfig; sourceTree = "<group>"; };
 		FB0DFDE6B3A4DC68F249B7CDD459EB4F /* Pods-ArhaticYogaJournaliOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ArhaticYogaJournaliOS-umbrella.h"; sourceTree = "<group>"; };
-		FB1A93F5D4F1836C573D95E47A75861C /* Pods_ArhaticYogaJournaliOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ArhaticYogaJournaliOSTests.framework; path = "Pods-ArhaticYogaJournaliOSTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB1A93F5D4F1836C573D95E47A75861C /* Pods_ArhaticYogaJournaliOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArhaticYogaJournaliOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +173,6 @@
 				1D977152697EFE9223869E059378CA22 /* FloatyWindow.swift */,
 				8C4EDF88D2E2192262E176B44A5EF067 /* Support Files */,
 			);
-			name = Floaty;
 			path = Floaty;
 			sourceTree = "<group>";
 		};
@@ -394,6 +393,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					D2A775A88EA787684F2905BCB73F96D1 = {
+						LastSwiftMigration = 1130;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -634,7 +638,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -694,8 +698,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -789,7 +792,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";

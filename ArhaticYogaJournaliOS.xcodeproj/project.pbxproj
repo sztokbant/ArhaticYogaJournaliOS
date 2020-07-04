@@ -238,26 +238,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Eduardo Sztokbant";
 				TargetAttributes = {
 					A09F0DEC1EBD7AB600F18483 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 65A7S7A35P;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					A09F0E001EBD7AB600F18483 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = CFBTHX3U4Y;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A09F0DEC1EBD7AB600F18483;
 					};
 					A09F0E0B1EBD7AB600F18483 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = CFBTHX3U4Y;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A09F0DEC1EBD7AB600F18483;
 					};
@@ -265,7 +265,7 @@
 			};
 			buildConfigurationList = A09F0DE81EBD7AB600F18483 /* Build configuration list for PBXProject "ArhaticYogaJournaliOS" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -577,7 +577,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -597,7 +597,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -613,7 +613,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArhaticYogaJournaliOS.app/ArhaticYogaJournaliOS";
 			};
 			name = Debug;
@@ -630,7 +630,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArhaticYogaJournaliOS.app/ArhaticYogaJournaliOS";
 			};
 			name = Release;
@@ -646,7 +646,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = ArhaticYogaJournaliOS;
 			};
 			name = Debug;
@@ -662,7 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = du.net.br.ArhaticYogaJournaliOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = ArhaticYogaJournaliOS;
 			};
 			name = Release;
