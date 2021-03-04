@@ -37,11 +37,23 @@ class AppUrls {
         return "https://" + currentDomain
     }
 
-    func isAllowed(domain: String) -> Bool {
-        return allowedDomains.contains(domain) || isAllowedGeneric(domain: domain)
+    func isAllowed(url: String) -> Bool {
+        return urlContainsAnyPattern(url: url, patterns: allowedDomains) || isAllowedGeneric(stringUrl: url);
     }
 
-    private func isAllowedGeneric(domain: String) -> Bool {
+    private func urlContainsAnyPattern(url: String, patterns: [String]) -> Bool {
+        for (_, element) in patterns.enumerated() {
+            if (url.contains(element)) {
+                return true
+            }
+        }
+        return false
+    }
+
+    private func isAllowedGeneric(stringUrl: String) -> Bool {
+        let url = URL(string: stringUrl)
+        let domain = (url?.host!)!
+
         return domain.hasPrefix(GENERIC_DOMAIN_PREFIX) &&
             domain.hasSuffix(GENERIC_DOMAIN_SUFFIX) &&
             domain.count > GENERIC_DOMAIN_PREFIX.count + GENERIC_DOMAIN_SUFFIX.count
@@ -54,5 +66,9 @@ class AppUrls {
             }
         }
         return false
+    }
+
+    func isDownloadable(url: String) -> Bool {
+        return isAllowed(url: url) && url.hasSuffix(".zip")
     }
 }
