@@ -65,7 +65,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
             }
             return false
         } else if (appUrls.isDownloadable(url: (request.url?.absoluteString)!)) {
-            initializeDownload(download: request)
+            initializeDownload(urlRequest: request)
             return false
         }
 
@@ -73,38 +73,51 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     }
 
     // Ref.: https://southernerd.us/blog/tutorial/2017/04/15/Download-Manager-Tutorial.html
-    func initializeDownload(download: URLRequest) {
-        // TODO: obtain filename from content disposition header, ref.: https://developer.apple.com/documentation/foundation/urlresponse/1415924-suggestedfilename
+    func initializeDownload(urlRequest: URLRequest) {
+        // TODO: Obtain filename from content disposition header, ref.: https://developer.apple.com/documentation/foundation/urlresponse/1415924-suggestedfilename
         let filenamePrefix = "ayj-data"
         let filenameSuffix = "zip"
         let filename = filenamePrefix + "." + filenameSuffix
 
-        let downloadingAlertController : UIAlertController = UIAlertController(title: "", message: "Downloading file " + filename, preferredStyle: UIAlertController.Style.alert)
-        self.present(downloadingAlertController, animated: true, completion: nil)
+        let downloadAlertController : UIAlertController = UIAlertController(title: "AY Journal Data", message: "The file " + filename + " will be saved to your device's local storage.", preferredStyle: UIAlertController.Style.alert)
 
-        do {
-            let urlToDownload : NSString = (download.url?.absoluteString)! as NSString
-            let url : NSURL = NSURL(string: urlToDownload as String)!
-            let urlData : NSData = try NSData.init(contentsOf: url as URL)
+        let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler:
+        {(alert: UIAlertAction!) in
+        })
 
-            if urlData.length > 0 {
-                let documentsDirectory : URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-                var filePath = documentsDirectory.appendingPathComponent(filenamePrefix).appendingPathExtension(filenameSuffix)
+        let okAction : UIAlertAction = UIAlertAction(title: "Download", style: UIAlertAction.Style.default, handler:
+        {(alert: UIAlertAction!) in
+            let downloadingAlertController : UIAlertController = UIAlertController(title: "", message: "Downloading file " + filename, preferredStyle: UIAlertController.Style.alert)
+            self.present(downloadingAlertController, animated: true, completion: nil)
 
-                // Check if file exists, prevent overwrite
-                var existCount = 0
-                while FileManager.default.fileExists(atPath: filePath.path) {
-                    existCount = existCount + 1
-                    filePath = documentsDirectory.appendingPathComponent(filenamePrefix + "-" + String(existCount)).appendingPathExtension(filenameSuffix)
+            do {
+                let stringUrl : NSString = (urlRequest.url?.absoluteString)! as NSString
+                let url : NSURL = NSURL(string: stringUrl as String)!
+                let urlData : NSData = try NSData.init(contentsOf: url as URL)
+
+                if urlData.length > 0 {
+                    let documentsDirectory : URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                    var filePath = documentsDirectory.appendingPathComponent(filenamePrefix).appendingPathExtension(filenameSuffix)
+
+                    // Prevent overwrite of existing files
+                    var existCount = 0
+                    while FileManager.default.fileExists(atPath: filePath.path) {
+                        existCount = existCount + 1
+                        filePath = documentsDirectory.appendingPathComponent(filenamePrefix + "-" + String(existCount)).appendingPathExtension(filenameSuffix)
+                    }
+
+                    urlData.write(to: filePath, atomically: true)
                 }
-
-                urlData.write(to: filePath, atomically: true)
+            } catch let error as NSError {
+                print(error.localizedDescription)
             }
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
 
-        downloadingAlertController.dismiss(animated: true, completion: nil)
+            downloadingAlertController.dismiss(animated: true, completion: nil)
+        })
+
+        downloadAlertController.addAction(cancelAction)
+        downloadAlertController.addAction(okAction)
+        self.present(downloadAlertController, animated: true, completion: nil)
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint,
