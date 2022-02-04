@@ -51,8 +51,12 @@ class AppUrls {
     }
 
     private func isAllowedGeneric(stringUrl: String) -> Bool {
-        let url = URL(string: stringUrl)
-        let domain = (url?.host!)!
+        var domain: String = ""
+        if let url = URL(string: stringUrl), let hostName = url.host {
+            domain = hostName
+        } else {
+            return false
+        }
 
         return domain.hasPrefix(GENERIC_DOMAIN_PREFIX) &&
             domain.hasSuffix(GENERIC_DOMAIN_SUFFIX) &&

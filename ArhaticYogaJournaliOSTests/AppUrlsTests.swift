@@ -90,6 +90,10 @@ class AppUrlsTests: XCTestCase {
         XCTAssertFalse(appUrls.isAllowed(url: "https://ayj.herokuapp.com"))
     }
 
+    func test_isAllowed_aboutBlank_false() {
+        XCTAssertFalse(appUrls.isAllowed(url: "about:blank"))
+    }
+
     func test_isSignedOut_baseUrlAndStats_false() {
         XCTAssertFalse(appUrls.isSignedOut(url: AppUrlsTests.PROD_URL))
         XCTAssertFalse(appUrls.isSignedOut(url: AppUrlsTests.PROD_URL + "/stats"))
