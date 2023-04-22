@@ -6,8 +6,8 @@
 //  Copyright © 2017 Eduardo Sztokbant. All rights reserved.
 //
 
-import UIKit
 import Floaty
+import WebKit
 
 class FloatingActionMenuManager {
 
@@ -42,7 +42,7 @@ class FloatingActionMenuManager {
         self.appUrls = appUrls
     }
 
-    func refresh(webView: UIWebView, url: URL) {
+    func refresh(webView: WKWebView, url: URL) {
         if (appUrls.getCurrentDomain() != url.host) {
             updateCurrentDomain(webView: webView, url: url)
         }
@@ -54,7 +54,7 @@ class FloatingActionMenuManager {
         }
     }
 
-    func updateCurrentDomain(webView: UIWebView, url: URL) {
+    func updateCurrentDomain(webView: WKWebView, url: URL) {
         floaty.items.removeAll()
 
         appUrls.setCurrentDomain(currentDomain: url.host!)
@@ -70,7 +70,7 @@ class FloatingActionMenuManager {
         floaty.animationSpeed = 0.014
     }
 
-    func buildFloatingActionButton(webView: UIWebView, title: String, icon: String, path: String) -> FloatyItem {
+    func buildFloatingActionButton(webView: WKWebView, title: String, icon: String, path: String) -> FloatyItem {
         let item = FloatyItem()
 
         item.title = title
@@ -81,7 +81,7 @@ class FloatingActionMenuManager {
         item.titleShadowColor = buttonColor
 
         item.handler = { item in
-            webView.loadRequest(URLRequest(url: URL(string: self.appUrls.getCurrentUrl() + "/" + path)!))
+            webView.load(URLRequest(url: URL(string: self.appUrls.getCurrentUrl() + "/" + path)!))
         }
 
         return item

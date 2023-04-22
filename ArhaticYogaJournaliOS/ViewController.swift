@@ -6,12 +6,12 @@
 //  Copyright © 2017 Eduardo Sztokbant. All rights reserved.
 //
 
-import UIKit
 import Floaty
+import WebKit
 
-class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
+class ViewController: UIViewController, WKNavigationDelegate, UIScrollViewDelegate {
 
-    @IBOutlet var webView: UIWebView!
+    @IBOutlet var webView: WKWebView!
     @IBOutlet var spinner: UIActivityIndicatorView!
 
     let appUrls: AppUrls = AppUrls()
@@ -33,17 +33,20 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     }
 
     func buildWebView() {
-        appendAppInfoToUserAgent()
-        webView.delegate = self
-        webView.scrollView.delegate = self
-        webView.loadRequest(URLRequest(url: URL(string: appUrls.getCurrentUrl())!))
-    }
+        let appVersion: String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        webView.customUserAgent = (UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? "") + " ArhaticYogaJournaliOS-" + appVersion
 
-    func appendAppInfoToUserAgent() {
-        let version: String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-        let userAgent: String =
-            UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent")! + " ArhaticYogaJournaliOS-" + version
-        UserDefaults.standard.register(defaults: ["UserAgent": userAgent])
+        webView.navigationDelegate = self
+        webView.scrollView.delegate = self
+
+        // Ensure webview won't cover top/bottom bars
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        webView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        webView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+
+        webView.load(URLRequest(url: URL(string: appUrls.getCurrentUrl())!))
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,27 +54,26 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
         // Dispose of any resources that can be recreated.
     }
 
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest,
-                 navigationType: UIWebView.NavigationType) -> Bool {
-        if (request.url?.scheme == "tel") {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if (navigationAction.request.url?.scheme == "tel") {
             // prevents accidental clicks on numbers from being interpreted as "tel:"
-            return false
-        } else if (request.url?.scheme == "bitcoin" ||
-                   ((request.url?.scheme == "http" || request.url?.scheme == "https") &&
-                    !appUrls.isAllowed(url: (request.url?.absoluteString)!)) ||
-                   request.url?.scheme == "mailto") {
+            decisionHandler(.cancel)
+        } else if (navigationAction.request.url?.scheme == "bitcoin" ||
+                   ((navigationAction.request.url?.scheme == "http" || navigationAction.request.url?.scheme == "https") &&
+                    !appUrls.isAllowed(url: (navigationAction.request.url?.absoluteString)!)) ||
+                   navigationAction.request.url?.scheme == "mailto") {
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(request.url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+                UIApplication.shared.open(navigationAction.request.url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             } else {
-                UIApplication.shared.openURL(request.url!)
+                UIApplication.shared.openURL(navigationAction.request.url!)
             }
-            return false
-        } else if (appUrls.isDownloadable(url: (request.url?.absoluteString)!)) {
-            initializeDownload(urlRequest: request)
-            return false
+            decisionHandler(.cancel)
+        } else if (appUrls.isDownloadable(url: (navigationAction.request.url?.absoluteString)!)) {
+            initializeDownload(urlRequest: navigationAction.request)
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
         }
-
-        return true
     }
 
     // Ref.: https://southernerd.us/blog/tutorial/2017/04/15/Download-Manager-Tutorial.html
@@ -125,25 +127,24 @@ class ViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if (scrollView.contentOffset.y < -100) {
-            if (webView.request?.url?.absoluteString == "") {
-                webView.loadRequest(URLRequest(url: URL(string: appUrls.getCurrentUrl())!))
+            if (webView.url?.absoluteString == "") {
+                webView.load(URLRequest(url: URL(string: appUrls.getCurrentUrl())!))
             } else {
                 webView.reload()
             }
         }
     }
 
-    func webViewDidStartLoad(_ webView: UIWebView) {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         spinner.startAnimating()
     }
 
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        let request: URLRequest = webView.request!
-        floatingActionMenuManager.refresh(webView: webView, url: (request.url)!)
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        floatingActionMenuManager.refresh(webView: webView, url: (webView.url)!)
         spinner.stopAnimating()
     }
 
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         spinner.stopAnimating()
 
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle:UIAlertController.Style.alert)
