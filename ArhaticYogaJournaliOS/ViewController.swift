@@ -39,6 +39,9 @@ class ViewController: UIViewController, WKNavigationDelegate, UIScrollViewDelega
         webView.navigationDelegate = self
         webView.scrollView.delegate = self
 
+        // Enable JavaScript alert dialogs like the one used to delete events
+        webView.uiDelegate = self
+
         // Ensure webview won't cover top/bottom bars
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -151,6 +154,58 @@ class ViewController: UIViewController, WKNavigationDelegate, UIScrollViewDelega
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// Enable JavaScript alert dialogs like the one used to delete events
+// Ref.: https://stackoverflow.com/a/40316507/641293
+extension ViewController: WKUIDelegate {
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo,
+                 completionHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            completionHandler()
+        }))
+
+        present(alertController, animated: true, completion: nil)
+    }
+
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo,
+                 completionHandler: @escaping (Bool) -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            completionHandler(true)
+        }))
+
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            completionHandler(false)
+        }))
+
+        present(alertController, animated: true, completion: nil)
+    }
+
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo,
+                 completionHandler: @escaping (String?) -> Void) {
+        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .alert)
+
+        alertController.addTextField { (textField) in
+            textField.text = defaultText
+        }
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            if let text = alertController.textFields?.first?.text {
+                completionHandler(text)
+            } else {
+                completionHandler(defaultText)
+            }
+        }))
+
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            completionHandler(nil)
+        }))
+
+        present(alertController, animated: true, completion: nil)
     }
 }
 
